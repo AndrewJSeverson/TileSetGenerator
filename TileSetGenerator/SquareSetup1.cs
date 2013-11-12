@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TileSetGenerator
 {
-    public partial class Form1 : Form
+    public partial class SquareSetup1 : Form
     {
-        public Form1()
+        public SquareSetup1()
         {
             InitializeComponent();
         }
