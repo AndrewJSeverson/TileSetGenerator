@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TileSetGenerator.TuringMachine;
 
 namespace TileSetGenerator
 {
@@ -20,7 +21,7 @@ namespace TileSetGenerator
         private void btnTuring_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var turing = new TuringSetup1();
+            var turing = new TuringMachineSetup(this);
             turing.Show();
         }
 

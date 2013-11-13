@@ -79,11 +79,33 @@
     <Compile Include="SquareSetup1.Designer.cs">
       <DependentUpon>SquareSetup1.cs</DependentUpon>
     </Compile>
-    <Compile Include="TuringSetup1.cs">
+    <Compile Include="TuringMachine\AlphabetSetup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TuringSetup1.Designer.cs">
-      <DependentUpon>TuringSetup1.cs</DependentUpon>
+    <Compile Include="TuringMachine\AlphabetSetup.Designer.cs">
+      <DependentUpon>AlphabetSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TuringMachine\Classes\State.cs" />
+    <Compile Include="TuringMachine\Classes\TuringMachineSettings.cs" />
+    <Compile Include="TuringMachine\Classes\Transition.cs" />
+    <Compile Include="TuringMachine\Classes\TuringMachine.cs" />
+    <Compile Include="TuringMachine\StartingString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TuringMachine\StartingString.Designer.cs">
+      <DependentUpon>StartingString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TuringMachine\States.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TuringMachine\States.Designer.cs">
+      <DependentUpon>States.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TuringMachine\TuringMachineSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TuringMachine\TuringMachineSetup.Designer.cs">
+      <DependentUpon>TuringMachineSetup.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -97,6 +119,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TuringMachine\AlphabetSetup.resx">
+      <DependentUpon>AlphabetSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TuringMachine\StartingString.resx">
+      <DependentUpon>StartingString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TuringMachine\States.resx">
+      <DependentUpon>States.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TuringMachine\TuringMachineSetup.resx">
+      <DependentUpon>TuringMachineSetup.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
