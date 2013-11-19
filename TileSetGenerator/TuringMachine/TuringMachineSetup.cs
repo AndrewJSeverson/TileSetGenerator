@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TileSetGenerator.TuringMachine.Classes;
 
 namespace TileSetGenerator.TuringMachine
 {
@@ -67,6 +68,28 @@ namespace TileSetGenerator.TuringMachine
         public void ChangeStateLabel(bool isComplete)
         {
             lblStateSetup.BackColor = isComplete ? Color.Green : Color.Red;
+        }
+
+        private void btnCreateTuringMachineSet_Click(object sender, EventArgs e)
+        {
+            // first check and make sure all 3 stages of setup are complete
+            if (lblStartStringSetup.BackColor == Color.Green && lblStateSetup.BackColor == Color.Green &&
+                lblAlphabetSetup.BackColor == Color.Green)
+            {
+                List<State> list = statesSetupForm.StatesDictionary.Select(value => new State {Transistions = value.Value, StateName = value.Key}).ToList();
+                var machine = new TileSetGenerator.TuringMachine.Classes.TuringMachine
+                    {
+                        Alphabet = alphabetSetupForm.Alphabet,
+                        StartingString = startingStringFrom.StartingStringList,
+                        StartingPosition = 1,
+                        StartingState = statesSetupForm.StartingState,
+                        States = list
+                    };
+            }
+            else
+            {
+                MessageBox.Show("Please make sure the enture setup is complete");
+            }
         }
     }
 }

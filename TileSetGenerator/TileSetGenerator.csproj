@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalClasses\Tile.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>

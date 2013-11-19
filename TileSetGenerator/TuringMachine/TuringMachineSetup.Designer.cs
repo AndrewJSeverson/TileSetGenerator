@@ -36,6 +36,7 @@
             this.btnOpenAlphabetSetup = new System.Windows.Forms.Button();
             this.btnOpenStartStringSetup = new System.Windows.Forms.Button();
             this.btnOpenStatesSetup = new System.Windows.Forms.Button();
+            this.btnCreateTuringMachineSet = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBackToMenu
@@ -121,11 +122,22 @@
             this.btnOpenStatesSetup.UseVisualStyleBackColor = true;
             this.btnOpenStatesSetup.Click += new System.EventHandler(this.btnOpenStatesSetup_Click);
             // 
+            // btnCreateTuringMachineSet
+            // 
+            this.btnCreateTuringMachineSet.Location = new System.Drawing.Point(360, 169);
+            this.btnCreateTuringMachineSet.Name = "btnCreateTuringMachineSet";
+            this.btnCreateTuringMachineSet.Size = new System.Drawing.Size(98, 23);
+            this.btnCreateTuringMachineSet.TabIndex = 8;
+            this.btnCreateTuringMachineSet.Text = "Create Tile Set";
+            this.btnCreateTuringMachineSet.UseVisualStyleBackColor = true;
+            this.btnCreateTuringMachineSet.Click += new System.EventHandler(this.btnCreateTuringMachineSet_Click);
+            // 
             // TuringMachineSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 204);
+            this.Controls.Add(this.btnCreateTuringMachineSet);
             this.Controls.Add(this.btnOpenStatesSetup);
             this.Controls.Add(this.btnOpenStartStringSetup);
             this.Controls.Add(this.btnOpenAlphabetSetup);
@@ -151,5 +163,6 @@
         private System.Windows.Forms.Button btnOpenAlphabetSetup;
         private System.Windows.Forms.Button btnOpenStartStringSetup;
         private System.Windows.Forms.Button btnOpenStatesSetup;
+        private System.Windows.Forms.Button btnCreateTuringMachineSet;
     }
 }

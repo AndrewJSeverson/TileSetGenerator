@@ -40,12 +40,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cboAlphabet = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.radioLeft = new System.Windows.Forms.RadioButton();
             this.radioRight = new System.Windows.Forms.RadioButton();
+            this.radioLeft = new System.Windows.Forms.RadioButton();
             this.cboState = new System.Windows.Forms.ComboBox();
             this.btnUpdateState = new System.Windows.Forms.Button();
             this.btnRemoveState = new System.Windows.Forms.Button();
             this.transitionTable = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblStartingState = new System.Windows.Forms.Label();
+            this.btnUpdateStartingState = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transitionTable)).BeginInit();
             this.SuspendLayout();
@@ -156,17 +159,6 @@
             this.panel1.Size = new System.Drawing.Size(108, 36);
             this.panel1.TabIndex = 15;
             // 
-            // radioLeft
-            // 
-            this.radioLeft.AutoSize = true;
-            this.radioLeft.Location = new System.Drawing.Point(3, 9);
-            this.radioLeft.Name = "radioLeft";
-            this.radioLeft.Size = new System.Drawing.Size(43, 17);
-            this.radioLeft.TabIndex = 16;
-            this.radioLeft.TabStop = true;
-            this.radioLeft.Text = "Left";
-            this.radioLeft.UseVisualStyleBackColor = true;
-            // 
             // radioRight
             // 
             this.radioRight.AutoSize = true;
@@ -177,6 +169,17 @@
             this.radioRight.TabStop = true;
             this.radioRight.Text = "Right";
             this.radioRight.UseVisualStyleBackColor = true;
+            // 
+            // radioLeft
+            // 
+            this.radioLeft.AutoSize = true;
+            this.radioLeft.Location = new System.Drawing.Point(3, 9);
+            this.radioLeft.Name = "radioLeft";
+            this.radioLeft.Size = new System.Drawing.Size(43, 17);
+            this.radioLeft.TabIndex = 16;
+            this.radioLeft.TabStop = true;
+            this.radioLeft.Text = "Left";
+            this.radioLeft.UseVisualStyleBackColor = true;
             // 
             // cboState
             // 
@@ -214,12 +217,46 @@
             this.transitionTable.ReadOnly = true;
             this.transitionTable.Size = new System.Drawing.Size(532, 405);
             this.transitionTable.TabIndex = 19;
+            this.transitionTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.transitionTable_CellClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(437, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 20);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Starting State: ";
+            // 
+            // lblStartingState
+            // 
+            this.lblStartingState.AutoSize = true;
+            this.lblStartingState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartingState.Location = new System.Drawing.Point(548, 13);
+            this.lblStartingState.Name = "lblStartingState";
+            this.lblStartingState.Size = new System.Drawing.Size(13, 20);
+            this.lblStartingState.TabIndex = 21;
+            this.lblStartingState.Text = " ";
+            // 
+            // btnUpdateStartingState
+            // 
+            this.btnUpdateStartingState.Location = new System.Drawing.Point(302, 10);
+            this.btnUpdateStartingState.Name = "btnUpdateStartingState";
+            this.btnUpdateStartingState.Size = new System.Drawing.Size(129, 23);
+            this.btnUpdateStartingState.TabIndex = 22;
+            this.btnUpdateStartingState.Text = "Update Starting State";
+            this.btnUpdateStartingState.UseVisualStyleBackColor = true;
+            this.btnUpdateStartingState.Click += new System.EventHandler(this.btnUpdateStartingState_Click);
             // 
             // States
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 483);
+            this.Controls.Add(this.btnUpdateStartingState);
+            this.Controls.Add(this.lblStartingState);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.transitionTable);
             this.Controls.Add(this.btnRemoveState);
             this.Controls.Add(this.btnUpdateState);
@@ -266,5 +303,8 @@
         private System.Windows.Forms.Button btnUpdateState;
         private System.Windows.Forms.Button btnRemoveState;
         private System.Windows.Forms.DataGridView transitionTable;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblStartingState;
+        private System.Windows.Forms.Button btnUpdateStartingState;
     }
 }

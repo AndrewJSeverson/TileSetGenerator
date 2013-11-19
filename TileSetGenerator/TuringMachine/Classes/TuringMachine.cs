@@ -13,5 +13,6 @@ namespace TileSetGenerator.TuringMachine.Classes
         public List<char> StartingString { get; set; }
         public int StartingPosition { get; set; }
         public State StartingState { get; set; }
+        public List<State> States { get; set; }
     }
 }

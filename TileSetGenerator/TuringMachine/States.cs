@@ -16,6 +16,7 @@ namespace TileSetGenerator.TuringMachine
         private readonly TuringMachineSetup setupForm;
         private List<string> stateList { get; set; }
         public Dictionary<string, Dictionary<char, Transition>> StatesDictionary { get; set; }
+        public State StartingState { get; set; }
         public States(TuringMachineSetup setupForm)
         {
             this.setupForm = setupForm;
@@ -26,27 +27,16 @@ namespace TileSetGenerator.TuringMachine
 
         public void InitializeForm()
         {
-            //todo : fix
-            // clear out table
-            foreach (DataGridViewRow row in transitionTable.Rows)
+            // grab alphabet, populate list and combo box with the results if it has not already happened
+            if (!(lstAlphabet.Items.Count > 0))
             {
-                transitionTable.Rows.Remove(row);
-            }
-            foreach (DataGridViewColumn col in transitionTable.Columns)
-            {
-                transitionTable.Columns.Remove(col);
-            }
-            // remove previous values
-            cboAlphabet.Items.Clear();
-            lstAlphabet.Items.Clear();
-
-            // grab alphabet, populate list and combo box with the results
-            var alphabet = setupForm.alphabetSetupForm.Alphabet;
-            foreach (var item in alphabet)
-            {
-                cboAlphabet.Items.Add(item);
-                lstAlphabet.Items.Add(item);
-                transitionTable.Columns.Add(item.ToString(), item.ToString());
+                var alphabet = setupForm.alphabetSetupForm.Alphabet;
+                foreach (var item in alphabet)
+                {
+                    cboAlphabet.Items.Add(item);
+                    lstAlphabet.Items.Add(item);
+                    transitionTable.Columns.Add(item.ToString(), item.ToString());
+                }
             }
         }
 
@@ -73,6 +63,12 @@ namespace TileSetGenerator.TuringMachine
             // if the text is of alteast length one, and it doesn't already exits, add it to the lists
             if (inputText.Length > 0 && !stateList.Contains(inputText))
             {
+                // if this is the first state being added, make it the starting state
+                if (stateList.Count == 0)
+                {
+                    lblStartingState.Text = inputText;
+                    StartingState = new State {StateName = inputText};
+                }
                 cboState.Items.Add(inputText);
                 lstStates.Items.Add(inputText);
                 // add new state to state list and dictionary
@@ -99,6 +95,12 @@ namespace TileSetGenerator.TuringMachine
             cboState.Items.Remove(selectedItem);
             // remove the row in the data grid
             transitionTable.Rows.RemoveAt(selectedIndex);
+            // if we are removing the state that is the current starting state, reset starting state
+            if (lblStartingState.Text == selectedItem)
+            {
+                lblStartingState.Text = "";
+                StartingState = null;
+            }
         }
 
         private void btnUpdateState_Click(object sender, EventArgs e)
@@ -123,17 +125,47 @@ namespace TileSetGenerator.TuringMachine
                     WriteChar = Char.Parse(cboAlphabet.Text)
                 };
 
-            if (!StatesDictionary[cboState.Text].ContainsKey(char.Parse(lstAlphabet.SelectedItem.ToString())))
+            if (!StatesDictionary[lstStates.SelectedItem.ToString()].ContainsKey(char.Parse(lstAlphabet.SelectedItem.ToString())))
             {
-                StatesDictionary[cboState.Text].Add(char.Parse(lstAlphabet.SelectedItem.ToString()), newTrans);
+                StatesDictionary[lstStates.SelectedItem.ToString()].Add(char.Parse(lstAlphabet.SelectedItem.ToString()), newTrans);
             }
             else
             {
                 // else just update the value
-                StatesDictionary[cboState.Text][char.Parse(lstAlphabet.SelectedItem.ToString())] = newTrans;
+                StatesDictionary[lstStates.SelectedItem.ToString()][char.Parse(lstAlphabet.SelectedItem.ToString())] = newTrans;
             }
             // add to gridview
             transitionTable[lstAlphabet.SelectedIndex, lstStates.SelectedIndex].Value = newTrans.WriteChar + ", " + (newTrans.MovementDirection == TuringMachineSettings.TransistionDirection.Left ? "Left, " : "Right, ") + newTrans.NextState.StateName;
+        }
+
+        private void transitionTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowindex = transitionTable.CurrentCell.RowIndex;
+            int columnindex = transitionTable.CurrentCell.ColumnIndex;
+            string row = transitionTable.CurrentCell.OwningRow.HeaderCell.Value.ToString();
+            string column = transitionTable.CurrentCell.OwningColumn.HeaderText;
+
+            lstAlphabet.SelectedIndex = columnindex;
+            lstStates.SelectedIndex = rowindex;
+            Dictionary<char, Transition> state = StatesDictionary[row];
+            if (!state.ContainsKey(Char.Parse(column)))
+            {
+                return;
+            }
+            Transition current = state[Char.Parse(column)];
+            cboAlphabet.Text = current.WriteChar.ToString();
+            cboState.Text = current.NextState.StateName;
+            radioLeft.Checked = current.MovementDirection == TuringMachineSettings.TransistionDirection.Left;
+            radioRight.Checked = current.MovementDirection == TuringMachineSettings.TransistionDirection.Right;
+        }
+
+        private void btnUpdateStartingState_Click(object sender, EventArgs e)
+        {
+            var selectedIndex = this.lstStates.SelectedIndex;
+            if (selectedIndex < 0) return;
+            var selectedItem = lstStates.Text;
+            lblStartingState.Text = selectedItem;
+            StartingState = new State {StateName = selectedItem};
         }
     }
 }
