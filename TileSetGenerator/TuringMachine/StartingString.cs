@@ -14,8 +14,10 @@ namespace TileSetGenerator.TuringMachine
     {
         private readonly TuringMachineSetup setupForm;
         public List<char> StartingStringList { get; set; }
+        public int StartingIndex { get; set; }
         public StartingString(TuringMachineSetup setupForm)
         {
+            StartingIndex = -1;
             StartingStringList = new List<char>();
             this.setupForm = setupForm;
             InitializeComponent();
@@ -46,8 +48,15 @@ namespace TileSetGenerator.TuringMachine
             {
                 StartingStringList.Add(item);
             }
+            // check starting index and make sure it is valid
+            int startingIndex;
+            if (int.TryParse(txtStartingIndex.Text, out startingIndex))
+            {
+                // valid int, assign it to the gloab variable
+                StartingIndex = startingIndex;
+            }
             // if the list has at least one item in it, we are can set this setup as done
-            if (StartingStringList.Count > 0)
+            if (StartingStringList.Count > 0 && StartingIndex >= 0 && StartingIndex < StartingStringList.Count)
             {
                 setupForm.ChangeStartStringLabel(true);
             }

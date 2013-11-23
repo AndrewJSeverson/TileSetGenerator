@@ -36,6 +36,8 @@
             this.txtStartingString = new System.Windows.Forms.TextBox();
             this.btnRemoveLast = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtStartingIndex = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -61,7 +63,7 @@
             // listAlphabet
             // 
             this.listAlphabet.FormattingEnabled = true;
-            this.listAlphabet.Location = new System.Drawing.Point(30, 43);
+            this.listAlphabet.Location = new System.Drawing.Point(15, 34);
             this.listAlphabet.Name = "listAlphabet";
             this.listAlphabet.Size = new System.Drawing.Size(39, 134);
             this.listAlphabet.TabIndex = 4;
@@ -115,11 +117,29 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "*NOTE - all other locations will be filled with the empty character";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(60, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(326, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "What index in the string would you like to start at? (using zero index)";
+            // 
+            // txtStartingIndex
+            // 
+            this.txtStartingIndex.Location = new System.Drawing.Point(341, 59);
+            this.txtStartingIndex.Name = "txtStartingIndex";
+            this.txtStartingIndex.Size = new System.Drawing.Size(36, 20);
+            this.txtStartingIndex.TabIndex = 12;
+            // 
             // StartingString
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 228);
+            this.Controls.Add(this.txtStartingIndex);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRemoveLast);
             this.Controls.Add(this.txtStartingString);
@@ -145,5 +165,7 @@
         private System.Windows.Forms.TextBox txtStartingString;
         private System.Windows.Forms.Button btnRemoveLast;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtStartingIndex;
     }
 }

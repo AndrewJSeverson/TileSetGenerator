@@ -23,6 +23,8 @@ namespace TileSetGenerator.TuringMachine
             stateList = new List<string>();
             StatesDictionary = new Dictionary<string, Dictionary<char, Transition>>();
             InitializeComponent();
+            // add the halting state to the combo state box select
+            cboState.Items.Add("halt");
         }
 
         public void InitializeForm()
@@ -136,6 +138,11 @@ namespace TileSetGenerator.TuringMachine
             }
             // add to gridview
             transitionTable[lstAlphabet.SelectedIndex, lstStates.SelectedIndex].Value = newTrans.WriteChar + ", " + (newTrans.MovementDirection == TuringMachineSettings.TransistionDirection.Left ? "Left, " : "Right, ") + newTrans.NextState.StateName;
+            // if the state being added in going to a halting state, show that
+            if (newTrans.NextState.StateName == "halt")
+            {
+                transitionTable[lstAlphabet.SelectedIndex, lstStates.SelectedIndex].Value = "HALT";
+            }
         }
 
         private void transitionTable_CellClick(object sender, DataGridViewCellEventArgs e)

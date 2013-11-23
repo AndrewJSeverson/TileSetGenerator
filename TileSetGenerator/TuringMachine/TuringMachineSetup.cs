@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TileSetGenerator.GlobalClasses;
 using TileSetGenerator.TuringMachine.Classes;
 
 namespace TileSetGenerator.TuringMachine
@@ -76,15 +77,27 @@ namespace TileSetGenerator.TuringMachine
             if (lblStartStringSetup.BackColor == Color.Green && lblStateSetup.BackColor == Color.Green &&
                 lblAlphabetSetup.BackColor == Color.Green)
             {
+                // don't need the halting state
+                statesSetupForm.StatesDictionary.Remove("halt");
                 List<State> list = statesSetupForm.StatesDictionary.Select(value => new State {Transistions = value.Value, StateName = value.Key}).ToList();
                 var machine = new TileSetGenerator.TuringMachine.Classes.TuringMachine
                     {
                         Alphabet = alphabetSetupForm.Alphabet,
                         StartingString = startingStringFrom.StartingStringList,
-                        StartingPosition = 1,
+                        StartingPosition = startingStringFrom.StartingIndex,
                         StartingState = statesSetupForm.StartingState,
                         States = list
                     };
+                List<Tile> generatedTiles = machine.GenerateTileSet();
+
+                // we have our tile set, now we need to create a file and write all the tiles to it
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(Environment.CurrentDirectory + "/TuringMachine.tds"))
+                {
+                    foreach (Tile tile in generatedTiles)
+                    {
+                        file.Write(tile.PrintTile());
+                    }
+                }
             }
             else
             {

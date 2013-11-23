@@ -39,6 +39,11 @@ namespace TileSetGenerator.TuringMachine
             // if the list has at least one item in it, we are can set this setup as done
             if (Alphabet.Count > 0)
             {
+                // add the empty character to the list
+                if (!Alphabet.Contains('-'))
+                {
+                    Alphabet.Add('-');
+                }
                 setupForm.ChangeAlphabetLabel(true);
             }
             else
