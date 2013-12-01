@@ -35,7 +35,7 @@ namespace TileSetGenerator
         private void btnRectangle_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var rectangle = new RectangleSetup1();
+            var rectangle = new TriangleSetup1();
             rectangle.Show();
         }
     }

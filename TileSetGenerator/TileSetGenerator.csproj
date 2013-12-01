@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalClasses\BinaryCounter.cs" />
     <Compile Include="GlobalClasses\Tile.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
@@ -68,11 +69,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RectangleSetup1.cs">
+    <Compile Include="TriangleSetup1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RectangleSetup1.Designer.cs">
-      <DependentUpon>RectangleSetup1.cs</DependentUpon>
+    <Compile Include="TriangleSetup1.Designer.cs">
+      <DependentUpon>TriangleSetup1.cs</DependentUpon>
     </Compile>
     <Compile Include="SquareSetup1.cs">
       <SubType>Form</SubType>
@@ -120,6 +121,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TriangleSetup1.resx">
+      <DependentUpon>TriangleSetup1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TuringMachine\AlphabetSetup.resx">
       <DependentUpon>AlphabetSetup.cs</DependentUpon>
     </EmbeddedResource>

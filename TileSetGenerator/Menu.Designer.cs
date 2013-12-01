@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnTuring = new System.Windows.Forms.Button();
             this.btnSquare = new System.Windows.Forms.Button();
-            this.btnRectangle = new System.Windows.Forms.Button();
+            this.btnTriangle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -64,22 +64,22 @@
             this.btnSquare.UseVisualStyleBackColor = true;
             this.btnSquare.Click += new System.EventHandler(this.btnSquare_Click);
             // 
-            // btnRectangle
+            // btnTriangle
             // 
-            this.btnRectangle.Location = new System.Drawing.Point(285, 50);
-            this.btnRectangle.Name = "btnRectangle";
-            this.btnRectangle.Size = new System.Drawing.Size(75, 23);
-            this.btnRectangle.TabIndex = 3;
-            this.btnRectangle.Text = "Rectangle";
-            this.btnRectangle.UseVisualStyleBackColor = true;
-            this.btnRectangle.Click += new System.EventHandler(this.btnRectangle_Click);
+            this.btnTriangle.Location = new System.Drawing.Point(285, 50);
+            this.btnTriangle.Name = "btnTriangle";
+            this.btnTriangle.Size = new System.Drawing.Size(75, 23);
+            this.btnTriangle.TabIndex = 3;
+            this.btnTriangle.Text = "Triangle";
+            this.btnTriangle.UseVisualStyleBackColor = true;
+            this.btnTriangle.Click += new System.EventHandler(this.btnRectangle_Click);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(371, 93);
-            this.Controls.Add(this.btnRectangle);
+            this.Controls.Add(this.btnTriangle);
             this.Controls.Add(this.btnSquare);
             this.Controls.Add(this.btnTuring);
             this.Controls.Add(this.label1);
@@ -95,7 +95,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnTuring;
         private System.Windows.Forms.Button btnSquare;
-        private System.Windows.Forms.Button btnRectangle;
+        private System.Windows.Forms.Button btnTriangle;
     }
 }
 
