@@ -13,8 +13,11 @@ namespace TileSetGenerator
 {
     public partial class TriangleSetup1 : Form
     {
-        public TriangleSetup1()
+        private readonly Menu menuForm;
+
+        public TriangleSetup1(Menu menuForm)
         {
+            this.menuForm = menuForm;
             InitializeComponent();
         }
 
@@ -395,6 +398,12 @@ namespace TileSetGenerator
             tiles.Add(NorthFill);
 
             return tiles;
+        }
+
+        private void btnBackToMenu_Click(object sender, EventArgs e)
+        {
+            menuForm.Show();
+            this.Hide();
         }
     }
 }

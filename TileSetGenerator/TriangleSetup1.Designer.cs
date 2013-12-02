@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTriangleHeight = new System.Windows.Forms.TextBox();
             this.btnGenerateTiangleSet = new System.Windows.Forms.Button();
+            this.btnBackToMenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -46,14 +47,14 @@
             // txtTriangleHeight
             // 
             this.txtTriangleHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTriangleHeight.Location = new System.Drawing.Point(368, 52);
+            this.txtTriangleHeight.Location = new System.Drawing.Point(368, 60);
             this.txtTriangleHeight.Name = "txtTriangleHeight";
             this.txtTriangleHeight.Size = new System.Drawing.Size(100, 20);
             this.txtTriangleHeight.TabIndex = 1;
             // 
             // btnGenerateTiangleSet
             // 
-            this.btnGenerateTiangleSet.Location = new System.Drawing.Point(270, 90);
+            this.btnGenerateTiangleSet.Location = new System.Drawing.Point(270, 102);
             this.btnGenerateTiangleSet.Name = "btnGenerateTiangleSet";
             this.btnGenerateTiangleSet.Size = new System.Drawing.Size(198, 47);
             this.btnGenerateTiangleSet.TabIndex = 2;
@@ -61,11 +62,22 @@
             this.btnGenerateTiangleSet.UseVisualStyleBackColor = true;
             this.btnGenerateTiangleSet.Click += new System.EventHandler(this.btnGenerateTiangleSet_Click);
             // 
+            // btnBackToMenu
+            // 
+            this.btnBackToMenu.Location = new System.Drawing.Point(12, 126);
+            this.btnBackToMenu.Name = "btnBackToMenu";
+            this.btnBackToMenu.Size = new System.Drawing.Size(90, 23);
+            this.btnBackToMenu.TabIndex = 9;
+            this.btnBackToMenu.Text = "Back to Menu";
+            this.btnBackToMenu.UseVisualStyleBackColor = true;
+            this.btnBackToMenu.Click += new System.EventHandler(this.btnBackToMenu_Click);
+            // 
             // TriangleSetup1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 161);
+            this.Controls.Add(this.btnBackToMenu);
             this.Controls.Add(this.btnGenerateTiangleSet);
             this.Controls.Add(this.txtTriangleHeight);
             this.Controls.Add(this.label1);
@@ -81,5 +93,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTriangleHeight;
         private System.Windows.Forms.Button btnGenerateTiangleSet;
+        private System.Windows.Forms.Button btnBackToMenu;
     }
 }

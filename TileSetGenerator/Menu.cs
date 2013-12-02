@@ -28,14 +28,14 @@ namespace TileSetGenerator
         private void btnSquare_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var square = new SquareSetup1();
+            var square = new SquareSetup1(this);
             square.Show();
         }
 
         private void btnRectangle_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var rectangle = new TriangleSetup1();
+            var rectangle = new TriangleSetup1(this);
             rectangle.Show();
         }
     }

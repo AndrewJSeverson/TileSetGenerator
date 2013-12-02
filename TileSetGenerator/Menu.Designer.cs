@@ -84,7 +84,7 @@
             this.Controls.Add(this.btnTuring);
             this.Controls.Add(this.label1);
             this.Name = "Menu";
-            this.Text = "Form1";
+            this.Text = "Tileset Helper";
             this.ResumeLayout(false);
             this.PerformLayout();
 
