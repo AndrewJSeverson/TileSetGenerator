@@ -17,6 +17,7 @@ namespace TileSetGenerator.TuringMachine
         public List<char> Alphabet { get; set; } 
         public AlphabetSetup(TuringMachineSetup setupForm)
         {
+            this.Closing += new CancelEventHandler(this.form1_Closing);
             this.setupForm = setupForm;
             InitializeComponent();
             Alphabet = new List<char>();
@@ -95,6 +96,12 @@ namespace TileSetGenerator.TuringMachine
         public bool IsAlphabetComplete()
         {
             return Alphabet.Count > 0;
+        }
+
+        // Closes the program on close
+        private void form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

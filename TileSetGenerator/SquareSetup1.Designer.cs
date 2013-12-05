@@ -30,13 +30,14 @@
         {
             this.btnGenerateSquareSet = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.sizeInput = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.nSquared = new System.Windows.Forms.CheckBox();
-            this.nComb = new System.Windows.Forms.CheckBox();
-            this.logN = new System.Windows.Forms.CheckBox();
             this.nL = new System.Windows.Forms.CheckBox();
+            this.logN = new System.Windows.Forms.CheckBox();
+            this.nComb = new System.Windows.Forms.CheckBox();
+            this.nSquared = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.sizeInput = new System.Windows.Forms.TextBox();
             this.btnBackToMenu = new System.Windows.Forms.Button();
+            this.WutButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,41 +66,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
             // 
-            // sizeInput
+            // nL
             // 
-            this.sizeInput.Location = new System.Drawing.Point(420, 19);
-            this.sizeInput.Name = "sizeInput";
-            this.sizeInput.Size = new System.Drawing.Size(100, 20);
-            this.sizeInput.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(384, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Size:";
-            // 
-            // nSquared
-            // 
-            this.nSquared.AutoSize = true;
-            this.nSquared.Location = new System.Drawing.Point(23, 21);
-            this.nSquared.Name = "nSquared";
-            this.nSquared.Size = new System.Drawing.Size(60, 17);
-            this.nSquared.TabIndex = 9;
-            this.nSquared.Text = "O(N^2)";
-            this.nSquared.UseVisualStyleBackColor = true;
-            // 
-            // nComb
-            // 
-            this.nComb.AutoSize = true;
-            this.nComb.Location = new System.Drawing.Point(89, 21);
-            this.nComb.Name = "nComb";
-            this.nComb.Size = new System.Drawing.Size(78, 17);
-            this.nComb.TabIndex = 10;
-            this.nComb.Text = "O(N) Comb";
-            this.nComb.UseVisualStyleBackColor = true;
+            this.nL.AutoSize = true;
+            this.nL.Location = new System.Drawing.Point(173, 21);
+            this.nL.Name = "nL";
+            this.nL.Size = new System.Drawing.Size(57, 17);
+            this.nL.TabIndex = 13;
+            this.nL.Text = "O(N) L";
+            this.nL.UseVisualStyleBackColor = true;
             // 
             // logN
             // 
@@ -111,15 +86,41 @@
             this.logN.Text = "O(logN) Binary Counter";
             this.logN.UseVisualStyleBackColor = true;
             // 
-            // nL
+            // nComb
             // 
-            this.nL.AutoSize = true;
-            this.nL.Location = new System.Drawing.Point(173, 21);
-            this.nL.Name = "nL";
-            this.nL.Size = new System.Drawing.Size(57, 17);
-            this.nL.TabIndex = 13;
-            this.nL.Text = "O(N) L";
-            this.nL.UseVisualStyleBackColor = true;
+            this.nComb.AutoSize = true;
+            this.nComb.Location = new System.Drawing.Point(89, 21);
+            this.nComb.Name = "nComb";
+            this.nComb.Size = new System.Drawing.Size(78, 17);
+            this.nComb.TabIndex = 10;
+            this.nComb.Text = "O(N) Comb";
+            this.nComb.UseVisualStyleBackColor = true;
+            // 
+            // nSquared
+            // 
+            this.nSquared.AutoSize = true;
+            this.nSquared.Location = new System.Drawing.Point(23, 21);
+            this.nSquared.Name = "nSquared";
+            this.nSquared.Size = new System.Drawing.Size(60, 17);
+            this.nSquared.TabIndex = 9;
+            this.nSquared.Text = "O(N^2)";
+            this.nSquared.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(384, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Size:";
+            // 
+            // sizeInput
+            // 
+            this.sizeInput.Location = new System.Drawing.Point(420, 19);
+            this.sizeInput.Name = "sizeInput";
+            this.sizeInput.Size = new System.Drawing.Size(100, 20);
+            this.sizeInput.TabIndex = 7;
             // 
             // btnBackToMenu
             // 
@@ -131,11 +132,22 @@
             this.btnBackToMenu.UseVisualStyleBackColor = true;
             this.btnBackToMenu.Click += new System.EventHandler(this.btnBackToMenu_Click);
             // 
+            // WutButton
+            // 
+            this.WutButton.Location = new System.Drawing.Point(185, 82);
+            this.WutButton.Name = "WutButton";
+            this.WutButton.Size = new System.Drawing.Size(75, 23);
+            this.WutButton.TabIndex = 9;
+            this.WutButton.Text = "WUT";
+            this.WutButton.UseVisualStyleBackColor = true;
+            this.WutButton.Click += new System.EventHandler(this.WutButton_Click);
+            // 
             // SquareSetup1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 125);
+            this.Controls.Add(this.WutButton);
             this.Controls.Add(this.btnBackToMenu);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGenerateSquareSet);
@@ -158,6 +170,7 @@
         private System.Windows.Forms.CheckBox nComb;
         private System.Windows.Forms.CheckBox nSquared;
         private System.Windows.Forms.Button btnBackToMenu;
+        private System.Windows.Forms.Button WutButton;
 
     }
 }

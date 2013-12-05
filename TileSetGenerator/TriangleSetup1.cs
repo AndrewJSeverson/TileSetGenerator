@@ -17,6 +17,7 @@ namespace TileSetGenerator
 
         public TriangleSetup1(Menu menuForm)
         {
+            this.Closing += new CancelEventHandler(this.form1_Closing);
             this.menuForm = menuForm;
             InitializeComponent();
         }
@@ -404,6 +405,12 @@ namespace TileSetGenerator
         {
             menuForm.Show();
             this.Hide();
+        }
+
+        // Closes the program on close
+        private void form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

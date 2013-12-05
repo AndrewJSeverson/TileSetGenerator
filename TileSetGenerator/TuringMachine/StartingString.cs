@@ -17,6 +17,7 @@ namespace TileSetGenerator.TuringMachine
         public int StartingIndex { get; set; }
         public StartingString(TuringMachineSetup setupForm)
         {
+            this.Closing += new CancelEventHandler(this.form1_Closing);
             StartingIndex = -1;
             StartingStringList = new List<char>();
             this.setupForm = setupForm;
@@ -97,6 +98,12 @@ namespace TileSetGenerator.TuringMachine
             {
                 txtStartingString.Text = current.Substring(0, current.Length - 1);
             }
+        }
+
+        // Closes the program on close
+        private void form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
