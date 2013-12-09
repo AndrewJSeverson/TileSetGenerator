@@ -20,6 +20,7 @@ namespace TileSetGenerator.TuringMachine
         public readonly States statesSetupForm;
         public TuringMachineSetup(Menu menuForm)
         {
+            this.Closing += new CancelEventHandler(this.form1_Closing);
             this.menuForm = menuForm;
             alphabetSetupForm = new AlphabetSetup(this);
             startingStringFrom = new StartingString(this);
@@ -103,6 +104,12 @@ namespace TileSetGenerator.TuringMachine
             {
                 MessageBox.Show("Please make sure the enture setup is complete");
             }
+        }
+
+        // Closes the program on close
+        private void form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

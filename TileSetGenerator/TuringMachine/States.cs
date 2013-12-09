@@ -19,6 +19,7 @@ namespace TileSetGenerator.TuringMachine
         public State StartingState { get; set; }
         public States(TuringMachineSetup setupForm)
         {
+            this.Closing += new CancelEventHandler(this.form1_Closing);
             this.setupForm = setupForm;
             stateList = new List<string>();
             StatesDictionary = new Dictionary<string, Dictionary<char, Transition>>();
@@ -173,6 +174,12 @@ namespace TileSetGenerator.TuringMachine
             var selectedItem = lstStates.Text;
             lblStartingState.Text = selectedItem;
             StartingState = new State {StateName = selectedItem};
+        }
+
+        // Closes the program on close
+        private void form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

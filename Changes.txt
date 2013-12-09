@@ -1,0 +1,1 @@
+-- Closing any window will now exit the program

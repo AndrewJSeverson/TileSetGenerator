@@ -17,6 +17,7 @@ namespace TileSetGenerator
 
         public SquareSetup1(Menu menuForm)
         {
+            this.Closing += new CancelEventHandler(this.form1_Closing);
             this.menuForm = menuForm;
             InitializeComponent();
         }
@@ -383,6 +384,29 @@ namespace TileSetGenerator
             }
 
             return binaryNumber.ToList();
+        }
+
+        // Closes the program on close
+        private void form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void WutButton_Click(object sender, EventArgs e)
+        {
+            var optimalEcoding = new OptimalEncoding();
+            var n = int.Parse(sizeInput.Text);
+
+            var strings = optimalEcoding.GetBitStrings(n);
+
+            var message = "" + optimalEcoding.GetSubstringSize(n) + ": ";
+
+            foreach(var str in strings)
+            {
+                message = message + str + " ";
+            }
+
+            MessageBox.Show(message);
         }
     }
 }
