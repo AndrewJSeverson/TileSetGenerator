@@ -242,7 +242,7 @@ namespace TileSetGenerator.TuringMachine.Classes
             {
                 Tile changeState = new Tile
                 {
-                    TN = transition.Value.NextState.StateName + "_" + character.ToString() + "_from_left",
+                    TN = transition.Value.NextState.StateName + "_" + character.ToString() + "_from_Right",
                     L = transition.Value.NextState.StateName + "_" + character.ToString(),
                     NB = 2,
                     EB = 1,
@@ -259,7 +259,7 @@ namespace TileSetGenerator.TuringMachine.Classes
             // tile for empty space on far right
             Tile emptyRight = new Tile
             {
-                TN = transition.Value.NextState.StateName + "_*-_from_left",
+                TN = transition.Value.NextState.StateName + "_*-_from_Right",
                 L = transition.Value.NextState.StateName + "_-",
                 NB = 2,
                 EB = 2,

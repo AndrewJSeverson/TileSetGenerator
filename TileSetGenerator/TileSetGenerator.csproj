@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalClasses\BinaryCounter.cs" />
+    <Compile Include="GlobalClasses\HelperMethods.cs" />
     <Compile Include="GlobalClasses\Tile.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>

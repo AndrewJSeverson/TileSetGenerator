@@ -81,9 +81,38 @@ namespace TileSetGenerator
             {
                 generatedTiles.Add(tile);
             }
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(Environment.CurrentDirectory + "/Triangle.tds"))
+
+            // print out default left facing tile set
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(Environment.CurrentDirectory + "/Triangle_Left_" + txtTriangleHeight.Text + ".tds"))
             {
                 foreach (Tile tile in generatedTiles)
+                {
+                    file.Write(tile.PrintTile());
+                }
+            }
+
+            // print out right facing tile set
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(Environment.CurrentDirectory + "/Triangle_Right_" + txtTriangleHeight.Text + ".tds"))
+            {
+                foreach (Tile tile in HelperMethods.FlipTileSetVertically(generatedTiles))
+                {
+                    file.Write(tile.PrintTile());
+                }
+            }
+
+            // print out south facing tile set
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(Environment.CurrentDirectory + "/Triangle_South_" + txtTriangleHeight.Text + ".tds"))
+            {
+                foreach (Tile tile in HelperMethods.FlipTileSetVHorizontally(generatedTiles))
+                {
+                    file.Write(tile.PrintTile());
+                }
+            }
+
+            // print out 90 degree counterclockwise rotated tile set
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(Environment.CurrentDirectory + "/Triangle_90_rotated_" + txtTriangleHeight.Text + ".tds"))
+            {
+                foreach (Tile tile in HelperMethods.FlipTileSet90Degrees(generatedTiles))
                 {
                     file.Write(tile.PrintTile());
                 }
